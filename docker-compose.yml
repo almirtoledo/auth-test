@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  database:
+    image: mariadb:latest
+    container_name: auth-database
+    environment:
+      - MARIADB_ROOT_PASSWORD=dev
+      - MARIADB_DATABASE=dev
+    ports:
+      - 3342:3306
+    volumes:
+      - ./mariadb:/var/lib/mysql
