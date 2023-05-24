@@ -2,10 +2,12 @@ import { HashingAdapter } from "@/infra/adapters/HashingAdapter";
 import { UserRepository } from "@/infra/repository/UserRepository";
 
 export class UserAction {
-  constructor(
-    private readonly repo: UserRepository,
-    private readonly hashing: HashingAdapter
-  ) {}
+  private repo: UserRepository;
+  private hashing: HashingAdapter;
+  constructor() {
+    this.repo = new UserRepository();
+    this.hashing = new HashingAdapter();
+  }
 
   async create(
     name: string,
